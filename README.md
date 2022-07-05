@@ -1,4 +1,4 @@
-# news_feed
+# users_list
 
 ## Project setup
 ```

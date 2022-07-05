@@ -1,35 +1,32 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Overview from '../views/Overview.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView,
+    path: '/overview',
+    name: 'overview',
+    component: Overview,
     props: true
   },
   {
-    path: '/page1',
-    name: 'page1',
-    component: () => import('../views/SamplePage1.vue')
+    path: '/user/:id',
+    name: 'user',
+    component: () => import('../views/UserView.vue')
   },
   {
-    path: '/page2',
-    name: 'page2',
-    component: () => import('../views/SamplePage2.vue')
-  },
-  {
-    path: '/page3',
-    name: 'page3',
-    component: () => import('../views/SamplePage3.vue')
+    path: '*',
+    name: 'page not found',
+    component: () => import('../views/PageNotFound.vue')
   }
+  
 ]
 
 const router = new VueRouter({
   routes
 })
 
+router.replace({ path: '/overview' })
 export default router
